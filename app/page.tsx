@@ -99,110 +99,28 @@ ${contactMessage}
                   일상생활 지원부터 전문적인 건강 관리까지, 편안하고 안정된 노후를 약속합니다.
                 </p>
               </div>
-              <div className="mt-6 flex flex-col gap-2 min-[400px]:flex-row">
-                <Link
-                  href="#nationwide-service"
-                  className="inline-flex h-10 items-center justify-center rounded-md bg-coral-500 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-coral-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-coral-600"
+              <div className="mt-6 flex justify-start">
+                {/* 모바일에서는 전화 연결, PC에서는 contact 섹션으로 이동 */}
+                <a
+                  href={typeof window !== 'undefined' && window.innerWidth < 768 ? "tel:032-546-0101" : "#contact"}
+                  onClick={(e) => {
+                    if (typeof window !== 'undefined' && window.innerWidth >= 768) {
+                      e.preventDefault();
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="inline-flex h-12 items-center justify-center rounded-md bg-coral-500 px-10 text-lg font-bold text-white shadow transition-colors hover:bg-coral-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-coral-600"
                 >
-                  서비스 상세 보기
-                </Link>
-                <Link
-                  href="#contact"
-                  className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950"
-                >
-                  상담 문의하기
-                </Link>
+                  <Phone className="w-5 h-5 mr-2" />
+                  032-546-0101
+                </a>
               </div>
             </div>
           </div>
         </section>
         
         <section className="py-16 px-4 bg-white">
-          <div className="container mx-auto text-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-2">미라재가복지센터의 약속</h2>
-            <p className="text-gray-600 mb-12">전문성과 따뜻한 마음으로 최상의 돌봄을 제공합니다.</p>
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                <CardContent className="p-8">
-                  <Heart className="mx-auto text-coral-500 w-16 h-16 mb-6" />
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">따뜻한 마음으로</h3>
-                  <p className="text-gray-600">내 가족을 대하는 따뜻한 마음으로 어르신 한 분 한 분께 정성을 다합니다.</p>
-                </CardContent>
-              </Card>
-              <Card className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                <CardContent className="p-8">
-                  <Users className="mx-auto text-coral-500 w-16 h-16 mb-6" />
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">체계적인 관리</h3>
-                  <p className="text-gray-600">전문 사회복지사가 어르신의 상태를 주기적으로 확인하고, 요양 계획을 체계적으로 관리합니다.</p>
-                </CardContent>
-              </Card>
-              <Card className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                <CardContent className="p-8">
-                  <Shield className="mx-auto text-coral-500 w-16 h-16 mb-6" />
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">신뢰할 수 있는 전문가</h3>
-                  <p className="text-gray-600">국가 공인 요양보호사 자격을 갖춘 검증된 전문가가 서비스를 제공합니다.</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        <section id="about" className="pt-12 pb-24 px-4 bg-gray-50">
           <div className="container mx-auto">
-
-
-            <div className="grid md:grid-cols-2 gap-16 items-center bg-white p-12 rounded-2xl shadow-xl mb-24">
-              {/* Left Column: Text Content */}
-              <div className="space-y-8">
-                <h3 className="text-3xl font-bold text-gray-800 leading-tight">
-                  어르신을 위한 <span className="text-coral-500">프리미엄 재가요양 서비스</span>
-                </h3>
-                <p className="text-lg text-gray-600">
-                  미라재가복지센터는 수년간의 노하우와 전문 인력을 바탕으로, 어르신 개개인의 필요에 맞춘 최상의 돌봄 서비스를 제공합니다. 저희는 단순한 생활 지원을 넘어, 어르신의 삶에 활력을 더하고 가족에게는 안심을 드리는 것을 목표로 합니다.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-coral-500 mr-3 mt-1 flex-shrink-0" />
-                    <p className="text-gray-700"><span className="font-semibold">1:1 맞춤 케어 플랜:</span> 사회복지사가 직접 방문하여 어르신의 건강 상태와 생활 패턴을 고려한 개인별 요양 계획을 수립합니다.</p>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-coral-500 mr-3 mt-1 flex-shrink-0" />
-                    <p className="text-gray-700"><span className="font-semibold">검증된 전문 요양보호사:</span> 엄격한 채용 과정을 통과하고, 지속적인 직무 교육을 이수하는 신뢰할 수 있는 요양보호사를 파견합니다.</p>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-coral-500 mr-3 mt-1 flex-shrink-0" />
-                    <p className="text-gray-700"><span className="font-semibold">가족과의 정기적인 소통:</span> 보호자님과 정기적으로 소통하며 어르신의 상태와 서비스 진행 상황을 투명하게 공유합니다.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Certification Images */}
-              <div className="grid grid-cols-2 gap-6">
-                <div className="transform hover:scale-105 transition-transform duration-300">
-                  <div className="bg-white p-2 border rounded-lg shadow-lg cursor-pointer" onClick={() => setSelectedImage("/certificate-janggi.jpg")}>
-                    <Image
-                      src="/certificate-janggi.jpg"
-                      alt="장기요양기관 지정서"
-                      width={300}
-                      height={420}
-                      className="rounded-md w-full"
-                    />
-                  </div>
-                </div>
-                <div className="transform hover:scale-105 transition-transform duration-300">
-                  <div className="bg-white p-2 border rounded-lg shadow-lg cursor-pointer" onClick={() => setSelectedImage("/certificate-goyou.jpg")}>
-                    <Image
-                      src="/certificate-goyou.jpg"
-                      alt="고유번호증"
-                      width={300}
-                      height={420}
-                      className="rounded-md w-full"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <div className="grid md:grid-cols-2 gap-16 items-center">
               {/* Left Column: MOU Images */}
               <div className="grid grid-cols-2 gap-4 items-center">
@@ -262,6 +180,96 @@ ${contactMessage}
             </div>
           </div>
         </section>
+        
+        <section className="py-16 px-4 bg-gray-50">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">미라재가복지센터의 약속</h2>
+            <p className="text-gray-600 mb-12">전문성과 따뜻한 마음으로 최상의 돌봄을 제공합니다.</p>
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <CardContent className="p-8">
+                  <Heart className="mx-auto text-coral-500 w-16 h-16 mb-6" />
+                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">따뜻한 마음으로</h3>
+                  <p className="text-gray-600">내 가족을 대하는 따뜻한 마음으로 어르신 한 분 한 분께 정성을 다합니다.</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <CardContent className="p-8">
+                  <Users className="mx-auto text-coral-500 w-16 h-16 mb-6" />
+                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">체계적인 관리</h3>
+                  <p className="text-gray-600">전문 사회복지사가 어르신의 상태를 주기적으로 확인하고, 요양 계획을 체계적으로 관리합니다.</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <CardContent className="p-8">
+                  <Shield className="mx-auto text-coral-500 w-16 h-16 mb-6" />
+                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">신뢰할 수 있는 전문가</h3>
+                  <p className="text-gray-600">국가 공인 요양보호사 자격을 갖춘 검증된 전문가가 서비스를 제공합니다.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="pt-12 pb-24 px-4 bg-gray-50">
+          <div className="container mx-auto">
+
+
+            <div className="grid md:grid-cols-2 gap-16 items-center bg-white p-12 rounded-2xl shadow-xl">
+              {/* Left Column: Text Content */}
+              <div className="space-y-8">
+                <h3 className="text-3xl font-bold text-gray-800 leading-tight">
+                  어르신을 위한 <span className="text-coral-500">프리미엄 재가요양 서비스</span>
+                </h3>
+                <p className="text-lg text-gray-600">
+                  미라재가복지센터는 수년간의 노하우와 전문 인력을 바탕으로, 어르신 개개인의 필요에 맞춘 최상의 돌봄 서비스를 제공합니다. 저희는 단순한 생활 지원을 넘어, 어르신의 삶에 활력을 더하고 가족에게는 안심을 드리는 것을 목표로 합니다.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-coral-500 mr-3 mt-1 flex-shrink-0" />
+                    <p className="text-gray-700"><span className="font-semibold">1:1 맞춤 케어 플랜:</span> 사회복지사가 직접 방문하여 어르신의 건강 상태와 생활 패턴을 고려한 개인별 요양 계획을 수립합니다.</p>
+                  </div>
+                  <div className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-coral-500 mr-3 mt-1 flex-shrink-0" />
+                    <p className="text-gray-700"><span className="font-semibold">검증된 전문 요양보호사:</span> 엄격한 채용 과정을 통과하고, 지속적인 직무 교육을 이수하는 신뢰할 수 있는 요양보호사를 파견합니다.</p>
+                  </div>
+                  <div className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-coral-500 mr-3 mt-1 flex-shrink-0" />
+                    <p className="text-gray-700"><span className="font-semibold">가족과의 정기적인 소통:</span> 보호자님과 정기적으로 소통하며 어르신의 상태와 서비스 진행 상황을 투명하게 공유합니다.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Certification Images */}
+              <div className="grid grid-cols-2 gap-6">
+                <div className="transform hover:scale-105 transition-transform duration-300">
+                  <div className="bg-white p-2 border rounded-lg shadow-lg cursor-pointer" onClick={() => setSelectedImage("/certificate-janggi.jpg")}>
+                    <Image
+                      src="/certificate-janggi.jpg"
+                      alt="장기요양기관 지정서"
+                      width={300}
+                      height={420}
+                      className="rounded-md w-full"
+                    />
+                  </div>
+                </div>
+                <div className="transform hover:scale-105 transition-transform duration-300">
+                  <div className="bg-white p-2 border rounded-lg shadow-lg cursor-pointer" onClick={() => setSelectedImage("/certificate-goyou.jpg")}>
+                    <Image
+                      src="/certificate-goyou.jpg"
+                      alt="고유번호증"
+                      width={300}
+                      height={420}
+                      className="rounded-md w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </section>
 
         <section id="nationwide-service" className="py-20 px-4 bg-coral-50">
           <div className="container mx-auto text-center">
@@ -279,7 +287,7 @@ ${contactMessage}
               <h2 className="text-4xl font-bold text-gray-800">전문적인 돌봄 서비스</h2>
               <p className="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">어르신의 편안하고 행복한 일상을 위해 미라재가복지센터가 제공하는 맞춤형 서비스를 만나보세요.</p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {/* Service 1: 방문요양 */}
               <Card className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 text-center">
                 <CardContent className="p-8">
@@ -295,15 +303,6 @@ ${contactMessage}
                   <Bath className="mx-auto text-coral-500 w-16 h-16 mb-6" />
                   <h3 className="text-2xl font-semibold text-gray-800 mb-4">방문목욕</h3>
                   <p className="text-gray-600">이동식 목욕 차량을 이용하여 안전하고 편안한 목욕 서비스를 제공합니다. (2인 1조)</p>
-                </CardContent>
-              </Card>
-
-              {/* Service 3: 방문간호 */}
-              <Card className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 text-center">
-                <CardContent className="p-8">
-                  <Stethoscope className="mx-auto text-coral-500 w-16 h-16 mb-6" />
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-4">방문간호</h3>
-                  <p className="text-gray-600">간호사가 의사 처방에 따라 댁으로 방문하여 간호, 진료 보조, 요양 상담 등을 제공합니다.</p>
                 </CardContent>
               </Card>
 
